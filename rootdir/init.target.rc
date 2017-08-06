@@ -37,9 +37,10 @@ on fs
     wait /dev/block/bootdevice
 
     mount_all fstab.qcom
+
     wait /dev/block/bootdevice/by-name/oem
     mount ext4 /dev/block/bootdevice/by-name/oem /oem ro nosuid nodev barrier=1
-
+    
 on post-fs-data
     mkdir /data/tombstones 0771 system system
     mkdir /tombstones/modem 0771 system system
@@ -240,18 +241,19 @@ service energy-awareness /system/bin/energy-awareness
     oneshot
 
 on boot
-    write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/top-app/boost/cpus 4-7
-    write /dev/cpuset/foreground/cpus 0-6
-    write /dev/cpuset/foreground/boost/cpus 0-6
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/system-background/cpus 0-3
+	write /dev/cpuset/top-app/cpus 0-7
+	write /dev/cpuset/top-app/boost/cpus 4-7
+	write /dev/cpuset/foreground/cpus 0-6
+	write /dev/cpuset/foreground/boost/cpus 0-6
+	write /dev/cpuset/background/cpus 0-1
+	write /dev/cpuset/system-background/cpus 0-3
 
-# add a cpuset for the camera daemon
-# we want all cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0-3
-    write /dev/cpuset/camera-daemon/mems 0
-    chown system system /dev/cpuset/camera-daemon
-    chown system system /dev/cpuset/camera-daemon/tasks
-    chmod 0664 /dev/cpuset/camera-daemon/tasks
+	# add a cpuset for the camera daemon
+	# we want all cores for camera
+	mkdir /dev/cpuset/camera-daemon
+	write /dev/cpuset/camera-daemon/cpus 0-3
+	write /dev/cpuset/camera-daemon/mems 0
+	chown system system /dev/cpuset/camera-daemon
+	chown system system /dev/cpuset/camera-daemon/tasks
+	chmod 0664 /dev/cpuset/camera-daemon/tasks
+

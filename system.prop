@@ -154,8 +154,8 @@ ro.telephony.ril_class=MarkwRIL
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.gt_library=libqti-gt.so
-ro.vendor.at_library=libqti-at.so
+#ro.vendor.gt_library=libqti-gt.so
+#ro.vendor.at_library=libqti-at.so
 
 # QMI
 persist.data.qmi.adb_logmask=0
@@ -178,4 +178,9 @@ ro.sys.fw.trim_enable_memory=2147483648
 
 # WIFI
 wifi.interface=wlan0
+
+# Experimental
+# min/max cpu in core control
+ro.core_ctl_min_cpu=2
+ro.core_ctl_max_cpu=4
 
