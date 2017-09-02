@@ -108,8 +108,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/audio/vendor/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/vendor/diracmobile.config:system/vendor/etc/diracmobile.config
+    $(LOCAL_PATH)/audio/vendor/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf
 
 # XML Audio configuration files
 PRODUCT_COPY_FILES += \
@@ -123,9 +122,10 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    camera.msm8953 \
-    libmm-qcamera \
-    Snap
+    Snap \
+    SnapdragonCamera
+#    camera.msm8953 \
+#    libmm-qcamera \
 
 # DASH technology
 PRODUCT_PACKAGES += \
@@ -145,8 +145,8 @@ PRODUCT_PACKAGES += \
     libtinyxml
 
 # Doze mode
-PRODUCT_PACKAGES += \
-    XiaomiDoze
+#PRODUCT_PACKAGES += \
+#    XiaomiDoze
 
 # Display Livedisplay
 PRODUCT_PACKAGES += \
@@ -169,7 +169,6 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-     fingerprint.msm8953 \
      fingerprintd
 
 # Fs_config
@@ -218,8 +217,7 @@ PRODUCT_COPY_FILES += \
 
 # Libshims
 PRODUCT_PACKAGES += \
-    libshims_camera \
-    libshims_ims
+    libshims_camera
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -251,6 +249,11 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
+# Perf
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/etc/perf-profile0.conf:system/vendor/etc/perf-profile0.conf \
+    $(LOCAL_PATH)/configs/etc/perf-profile1.conf:system/vendor/etc/perf-profile1.conf
+
 # Power
 PRODUCT_PACKAGES += \
     power.msm8953
@@ -266,7 +269,6 @@ PRODUCT_PACKAGES += \
     init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
-    init.qcom.power.rc \
     init.target.rc \
     ueventd.qcom.rc
 
@@ -294,7 +296,6 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/etc/thermal-engine.conf \
     $(LOCAL_PATH)/configs/thermal-engine-8953.conf:system/etc/thermal-engine-8953.conf
 
 # WiFi
