@@ -182,6 +182,9 @@ ro.core_ctl_max_cpu=4
 # QMI
 persist.data.qmi.adb_logmask=0
 
+# SdcardFs
+ro.sys.sdcardfs=true
+
 # Service Restart
 ro.am.reschedule_service=true
 
